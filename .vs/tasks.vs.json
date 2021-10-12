@@ -5,6 +5,11 @@
       "taskLabel": "task-IT-488",
       "appliesTo": "/",
       "type": "launch"
+    },
+    {
+      "taskLabel": "task-Form1.Designer",
+      "appliesTo": "IT488_Team_1_Project/Form1.Designer.cs",
+      "type": "launch"
     }
   ]
 }

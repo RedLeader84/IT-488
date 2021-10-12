@@ -8,14 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IT488_Team_1_Project
+namespace IT488_Team_1_Project.PLL
 {
-    public partial class Form1 : Form
+    public partial class ViewFullContact : Form
     {
-        public Form1()
+        public ViewFullContact()
         {
             InitializeComponent();
         }
-
     }
 }
