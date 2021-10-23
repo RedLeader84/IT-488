@@ -1,0 +1,26 @@
+C:\Users\Larissa\Source\Repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\bin\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.exe
+C:\Users\Larissa\Source\Repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\bin\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.deps.json
+C:\Users\Larissa\Source\Repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\bin\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.runtimeconfig.json
+C:\Users\Larissa\Source\Repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\bin\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.runtimeconfig.dev.json
+C:\Users\Larissa\Source\Repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\bin\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.dll
+C:\Users\Larissa\Source\Repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\bin\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.pdb
+C:\Users\Larissa\Source\Repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\Larissa\Source\Repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\Larissa\Source\Repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\Larissa\Source\Repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\Larissa\Source\Repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Larissa\Source\Repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Larissa\Source\Repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.csproj.AssemblyReference.cache
+C:\Users\Larissa\Source\Repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.Main.resources
+C:\Users\Larissa\Source\Repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.PLL.AddressBook.resources
+C:\Users\Larissa\Source\Repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.PLL.EditContact.resources
+C:\Users\Larissa\Source\Repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.PLL.ViewFullContact.resources
+C:\Users\Larissa\Source\Repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.csproj.GenerateResource.cache
+C:\Users\Larissa\Source\Repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Larissa\Source\Repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.AssemblyInfoInputs.cache
+C:\Users\Larissa\Source\Repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.AssemblyInfo.cs
+C:\Users\Larissa\Source\Repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.csproj.CoreCompileInputs.cache
+C:\Users\Larissa\Source\Repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.dll
+C:\Users\Larissa\Source\Repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.pdb
+C:\Users\Larissa\Source\Repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.genruntimeconfig.cache
+C:\Users\Larissa\Source\Repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.PLL.Database Connection.resources
