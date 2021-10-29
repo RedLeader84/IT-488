@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\IT488_Team_1_Project",
+    "\\IT488_Team_1_Project_AddressBook",
+    "\\IT488_Team_1_Project_AddressBook\\bin\\Release\\netcoreapp3.1",
+    "\\IT488_Team_1_Project_AddressBook\\PLL"
   ],
+  "SelectedNode": "\\IT488_Team_1_Project_AddressBook\\PLL\\AddressBook.cs",
   "PreviewInSolutionExplorer": false
 }
