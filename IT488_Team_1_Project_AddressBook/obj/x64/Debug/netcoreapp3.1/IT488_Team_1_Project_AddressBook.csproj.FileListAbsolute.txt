@@ -1,0 +1,22 @@
+C:\Users\Doug Andrzejewski.DELLG3\source\repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\bin\x64\Debug\netcoreapp3.1\projectDB.mdf
+C:\Users\Doug Andrzejewski.DELLG3\source\repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\bin\x64\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.exe
+C:\Users\Doug Andrzejewski.DELLG3\source\repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\bin\x64\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\Doug Andrzejewski.DELLG3\source\repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\bin\x64\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\Doug Andrzejewski.DELLG3\source\repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\bin\x64\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\Doug Andrzejewski.DELLG3\source\repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\bin\x64\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\Doug Andrzejewski.DELLG3\source\repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\bin\x64\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Doug Andrzejewski.DELLG3\source\repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\bin\x64\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Doug Andrzejewski.DELLG3\source\repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\x64\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.csproj.AssemblyReference.cache
+C:\Users\Doug Andrzejewski.DELLG3\source\repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\x64\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.PLL.AddressBook.resources
+C:\Users\Doug Andrzejewski.DELLG3\source\repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\x64\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.PLL.Database Connection.resources
+C:\Users\Doug Andrzejewski.DELLG3\source\repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\x64\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.PLL.EditContact.resources
+C:\Users\Doug Andrzejewski.DELLG3\source\repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\x64\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.PLL.ViewFullContact.resources
+C:\Users\Doug Andrzejewski.DELLG3\source\repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\x64\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.Properties.Resources.resources
+C:\Users\Doug Andrzejewski.DELLG3\source\repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\x64\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.csproj.GenerateResource.cache
+C:\Users\Doug Andrzejewski.DELLG3\source\repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\x64\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Doug Andrzejewski.DELLG3\source\repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\x64\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.AssemblyInfoInputs.cache
+C:\Users\Doug Andrzejewski.DELLG3\source\repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\x64\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.AssemblyInfo.cs
+C:\Users\Doug Andrzejewski.DELLG3\source\repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\x64\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.csproj.CoreCompileInputs.cache
+C:\Users\Doug Andrzejewski.DELLG3\source\repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\x64\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.csproj.CopyComplete
+C:\Users\Doug Andrzejewski.DELLG3\source\repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\x64\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.dll
+C:\Users\Doug Andrzejewski.DELLG3\source\repos\RedLeader84\IT-488\IT488_Team_1_Project_AddressBook\obj\x64\Debug\netcoreapp3.1\IT488_Team_1_Project_AddressBook.pdb
