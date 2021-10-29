@@ -19,7 +19,25 @@ namespace IT488_Team_1_Project_AddressBook
             InitializeComponent();
         }
 
+        private void Main_Load(object sender, EventArgs e)
+        {
 
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
