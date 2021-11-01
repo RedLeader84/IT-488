@@ -8,6 +8,7 @@ namespace IT488_Team_1_Project_AddressBook.BLL
 {
     class AddressBookBLL
     {
+<<<<<<< HEAD
         public DataTable GetContacts()
         {
             try
@@ -35,5 +36,7 @@ namespace IT488_Team_1_Project_AddressBook.BLL
                 throw;
             }
         }
+=======
+>>>>>>> 782c7b47b07f6cfe23828a7d1eb922cf82b37f0b
     }
 }

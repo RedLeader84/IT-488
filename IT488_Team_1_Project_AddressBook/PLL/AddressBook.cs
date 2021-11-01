@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using IT488_Team_1_Project_AddressBook.BLL;
+using IT488_Team_1_Project_AddressBook.DAL;
 
 namespace IT488_Team_1_Project_AddressBook.PLL
 {
@@ -18,7 +19,11 @@ namespace IT488_Team_1_Project_AddressBook.PLL
 
         private void AddressBook_Load(object sender, EventArgs e)
         {
+            dataGridView1.DataSource = Connection.Load_DataGrid();
 
+            //Adjust Window Size To DataTable
+            this.Size = new Size(dataGridView1.Columns.GetColumnsWidth(DataGridViewElementStates.Visible) + 75, 500);
+            this.CenterToScreen();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -28,8 +33,6 @@ namespace IT488_Team_1_Project_AddressBook.PLL
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AddressBookBLL objBLL = new AddressBookBLL();
-            dataGridView1.DataSource = objBLL.GetContacts();
         }
 
         private void button3_Click(object sender, EventArgs e)

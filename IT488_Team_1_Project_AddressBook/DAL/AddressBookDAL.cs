@@ -10,6 +10,7 @@ namespace IT488_Team_1_Project_AddressBook.DAL
 
    public class AddressBookDAL
     {
+<<<<<<< HEAD
         DataTable dt = new DataTable();
         public DataTable ReadContacts()
         {
@@ -51,5 +52,7 @@ namespace IT488_Team_1_Project_AddressBook.DAL
             }
         }
         
+=======
+>>>>>>> 782c7b47b07f6cfe23828a7d1eb922cf82b37f0b
     }
 }
