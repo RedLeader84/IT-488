@@ -31,5 +31,11 @@ namespace IT488_Team_1_Project_AddressBook.PLL
             AddressBookBLL objBLL = new AddressBookBLL();
             dataGridView1.DataSource = objBLL.GetContacts();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AddressBookBLL objBLL = new AddressBookBLL();
+            dataGridView1.DataSource = objBLL.SearchContacts();
+        }
     }
 }

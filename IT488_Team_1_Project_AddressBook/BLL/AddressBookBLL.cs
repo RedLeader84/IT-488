@@ -21,5 +21,19 @@ namespace IT488_Team_1_Project_AddressBook.BLL
                 throw;
             }
         }
+
+        public DataTable SearchContacts()
+        {
+            try
+            {
+                AddressBookDAL objdal = new AddressBookDAL();
+                return objdal.SearchContacts();
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
 }
