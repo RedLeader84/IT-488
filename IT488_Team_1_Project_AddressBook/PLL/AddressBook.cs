@@ -19,20 +19,17 @@ namespace IT488_Team_1_Project_AddressBook.PLL
 
         private void AddressBook_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = Connection.Load_DataGrid();
+            contactViewer.DataSource = Connection.Load_DataGrid();
 
             //Adjust Window Size To DataTable
-            this.Size = new Size(dataGridView1.Columns.GetColumnsWidth(DataGridViewElementStates.Visible) + 75, 500);
+            this.Size = new Size(contactViewer.Columns.GetColumnsWidth(DataGridViewElementStates.Visible) + 75, 500);
             this.CenterToScreen();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void addEditButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
+            Form f = new AddEditContact();
+            f.ShowDialog();
         }
     }
 }

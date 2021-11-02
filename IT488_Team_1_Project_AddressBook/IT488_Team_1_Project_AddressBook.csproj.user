@@ -4,10 +4,7 @@
     <Compile Update="PLL\AddressBook.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="PLL\EditContact.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="PLL\ViewFullContact.cs">
+    <Compile Update="PLL\AddEditContact.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
