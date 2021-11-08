@@ -14,5 +14,17 @@ namespace IT488_Team_1_Project_AddressBook.PLL
         {
             InitializeComponent();
         }
+
+
+        #region Button Events
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
     }
 }

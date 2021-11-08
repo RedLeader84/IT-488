@@ -1,14 +1,15 @@
 ﻿using System.Data;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace IT488_Team_1_Project_AddressBook.DAL
 {
-        public class Connection
-        {
-            //Global Dataset Filled with Database
-            public static projectDataSet dbDataSet = new projectDataSet();
+    public class Connection
+    {
+        //Global Dataset Filled with Database
+        public static projectDataSet dbDataSet = new projectDataSet();
 
-            public static void Load_Database()
+       public static void Load_Database()
             {
                 //Define Table Adapters.
                 projectDataSetTableAdapters.contactNameTableAdapter nameTableAdapter = new projectDataSetTableAdapters.contactNameTableAdapter();
@@ -20,8 +21,8 @@ namespace IT488_Team_1_Project_AddressBook.DAL
                 addressTableAdapter.Fill(dbDataSet.contactAddress);
                 otherTableAdapter.Fill(dbDataSet.contactOther);
             }
-            public static DataTable Load_DataGrid()
-            {
+        public static DataTable Load_DataGrid()
+        {
                 //LINQ query to merge datatables for viewing.
                 var query = from tbl_1 in dbDataSet.contactName.AsEnumerable()
                             join tbl_2 in dbDataSet.contactAddress.AsEnumerable() on (int)tbl_1["id"] equals (int)tbl_2["contactId"]
@@ -61,6 +62,10 @@ namespace IT488_Team_1_Project_AddressBook.DAL
 
                 return tbl;
             }
+        public static void SaveContact(Form f)
+        {
+
         }
     }
+}
 
