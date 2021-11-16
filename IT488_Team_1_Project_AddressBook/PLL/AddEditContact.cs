@@ -8,11 +8,17 @@ namespace IT488_Team_1_Project_AddressBook.PLL
 {
     public partial class AddEditContact : Form
     {
-        public AddEditContact()
+        //Global Form Variables
+        public string addEditSelection = "";
+        public string selectedContact = "";
+
+        public AddEditContact(string butText, string contact)
         {
             InitializeComponent();
-        }
 
+            addEditSelection = butText;
+            selectedContact = contact;
+        }
 
         #region Button Events
         private void saveButton_Click(object sender, EventArgs e)
@@ -162,5 +168,13 @@ namespace IT488_Team_1_Project_AddressBook.PLL
             Connection.dbDataSet.contactOther.Rows.Add(otherRow);
         }
         #endregion
+        private void AddEditContact_Load(object sender, EventArgs e)
+        {
+            //projectDataSet.contactNameRow nameRow = Connection.dbDataSet.contactName.fi
+            if (addEditSelection == "Edit Contact")
+            {
+
+            }
+        }
     }
 }

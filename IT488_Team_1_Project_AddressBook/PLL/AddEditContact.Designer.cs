@@ -266,6 +266,7 @@ namespace IT488_Team_1_Project_AddressBook.PLL
             this.Name = "AddEditContact";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "(Add/Edit) Contact";
+            this.Load += new System.EventHandler(this.AddEditContact_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
