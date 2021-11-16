@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using IT488_Team_1_Project_AddressBook.DAL;
 
 namespace IT488_Team_1_Project_AddressBook.PLL
 {
@@ -26,7 +27,7 @@ namespace IT488_Team_1_Project_AddressBook.PLL
                 errors = true;
             }
             else firstNameLabel.ForeColor = Color.Black;
-            if (!lastNameTextBox.Text.All(c => Char.IsLetter(c)) || firstNameTextBox.Text.Length == 0)
+            if (!lastNameTextBox.Text.All(c => Char.IsLetter(c)) || lastNameTextBox.Text.Length == 0)
             {
                 lastNameLabel.ForeColor = Color.Red;
                 errors = true;
@@ -38,19 +39,19 @@ namespace IT488_Team_1_Project_AddressBook.PLL
                 errors = true;
             }
             else address1Label.ForeColor = Color.Black;
-            if (!cityTextBox.Text.All(c => Char.IsLetter(c)) || firstNameTextBox.Text.Length == 0)
+            if (!cityTextBox.Text.All(c => Char.IsLetter(c)) || cityTextBox.Text.Length == 0)
             {
                 cityLabel.ForeColor = Color.Red;
                 errors = true;
             }
             else cityLabel.ForeColor = Color.Black;
-            if (!stateTextBox.Text.All(c => Char.IsLetter(c)) || stateTextBox.Text.Length != 2 || firstNameTextBox.Text.Length == 0)
+            if (!stateTextBox.Text.All(c => Char.IsLetter(c)) || stateTextBox.Text.Length != 2 || stateTextBox.Text.Length == 0)
             {
                 stateLabel.ForeColor = Color.Red;
                 errors = true;
             }
             else stateLabel.ForeColor = Color.Black;
-            if (!zipTextBox.Text.All(c => Char.IsNumber(c)) || stateTextBox.Text.Length != 5 || firstNameTextBox.Text.Length == 0)
+            if (!zipTextBox.Text.All(c => Char.IsNumber(c)) || zipTextBox.Text.Length != 5 || zipTextBox.Text.Length == 0)
             {
                 zipLabel.ForeColor = Color.Red;
                 errors = true;
@@ -62,7 +63,7 @@ namespace IT488_Team_1_Project_AddressBook.PLL
                 errors = true;
             }
             else phoneLabel.ForeColor = Color.Black;
-            if (!IsValidEmail(emailTextBox.Text) || firstNameTextBox.Text.Length == 0)
+            if (!IsValidEmail(emailTextBox.Text) || emailTextBox.Text.Length == 0)
             {
                 emailLabel.ForeColor = Color.Red;
                 errors = true;
@@ -78,6 +79,7 @@ namespace IT488_Team_1_Project_AddressBook.PLL
             }
             else
             {
+                UpdateDataSet();
                 this.Close();
             }
         }
@@ -86,7 +88,8 @@ namespace IT488_Team_1_Project_AddressBook.PLL
             this.Close();
         }
         #endregion
- 
+
+        #region Data Validation Functions
         //Data Validation Functions
         private bool IsValidEmail(string e)
         {
@@ -104,5 +107,60 @@ namespace IT488_Team_1_Project_AddressBook.PLL
 
             return result;
         }
+        #endregion
+
+        #region DataSet Functions
+        //DataSet Functions
+        private void UpdateDataSet()
+        {
+            int maxNameId = 0;
+            int maxAddressId = 0;
+            int maxOtherId = 0;
+
+            //Update contactName Table
+            projectDataSet.contactNameRow nameRow = Connection.dbDataSet.contactName.NewcontactNameRow();
+            foreach (projectDataSet.contactNameRow r in Connection.dbDataSet.contactName)
+            {
+                if (r.id > maxNameId)
+                    maxNameId = r.id;
+            }
+            nameRow.id = maxNameId + 1;
+            nameRow.firstName = firstNameTextBox.Text;
+            nameRow.lastName = lastNameTextBox.Text;
+
+            //Update contactAddress Table
+            projectDataSet.contactAddressRow addressRow = Connection.dbDataSet.contactAddress.NewcontactAddressRow();
+            foreach (projectDataSet.contactAddressRow r in Connection.dbDataSet.contactAddress)
+            {
+                if (r.id > maxAddressId)
+                    maxAddressId = r.id;
+            }
+            addressRow.id = maxAddressId + 1;
+            addressRow.addressLine1 = address1TextBox.Text;
+            addressRow.addressLine2 = address2TextBox.Text;
+            addressRow.city = cityTextBox.Text;
+            addressRow.state = stateTextBox.Text;
+            addressRow.zip = Convert.ToInt32(zipTextBox.Text);
+            addressRow.contactId = maxNameId + 1;
+
+            //Update contactOther Table
+            projectDataSet.contactOtherRow otherRow = Connection.dbDataSet.contactOther.NewcontactOtherRow();
+            foreach (projectDataSet.contactOtherRow r in Connection.dbDataSet.contactOther)
+            {
+                if (r.id > maxOtherId)
+                    maxOtherId = r.id;
+            }
+            otherRow.id = maxOtherId + 1;
+            otherRow.phoneNum = phoneTextBox.Text;
+            otherRow.email = emailTextBox.Text;
+            otherRow.comments = commentsTextBox.Text;
+            otherRow.contactId = maxNameId + 1;
+
+            //Add Rows to DataTables
+            Connection.dbDataSet.contactName.Rows.Add(nameRow);
+            Connection.dbDataSet.contactAddress.Rows.Add(addressRow);
+            Connection.dbDataSet.contactOther.Rows.Add(otherRow);
+        }
+        #endregion
     }
 }

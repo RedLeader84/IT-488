@@ -10,17 +10,17 @@ namespace IT488_Team_1_Project_AddressBook.DAL
         public static projectDataSet dbDataSet = new projectDataSet();
 
        public static void Load_Database()
-            {
-                //Define Table Adapters.
-                projectDataSetTableAdapters.contactNameTableAdapter nameTableAdapter = new projectDataSetTableAdapters.contactNameTableAdapter();
-                projectDataSetTableAdapters.contactAddressTableAdapter addressTableAdapter = new projectDataSetTableAdapters.contactAddressTableAdapter();
-                projectDataSetTableAdapters.contactOtherTableAdapter otherTableAdapter = new projectDataSetTableAdapters.contactOtherTableAdapter();
+        {
+            //Define Table Adapters.
+            projectDataSetTableAdapters.contactNameTableAdapter nameTableAdapter = new projectDataSetTableAdapters.contactNameTableAdapter();
+            projectDataSetTableAdapters.contactAddressTableAdapter addressTableAdapter = new projectDataSetTableAdapters.contactAddressTableAdapter();
+            projectDataSetTableAdapters.contactOtherTableAdapter otherTableAdapter = new projectDataSetTableAdapters.contactOtherTableAdapter();
 
-                //Fill DataSet Tables
-                nameTableAdapter.Fill(dbDataSet.contactName);
-                addressTableAdapter.Fill(dbDataSet.contactAddress);
-                otherTableAdapter.Fill(dbDataSet.contactOther);
-            }
+            //Fill DataSet Tables
+            nameTableAdapter.Fill(dbDataSet.contactName);
+            addressTableAdapter.Fill(dbDataSet.contactAddress);
+            otherTableAdapter.Fill(dbDataSet.contactOther);
+        }
         public static DataTable Load_DataGrid()
         {
                 //LINQ query to merge datatables for viewing.
@@ -62,9 +62,23 @@ namespace IT488_Team_1_Project_AddressBook.DAL
 
                 return tbl;
             }
-        public static void SaveContact(Form f)
+        public static void Update_Database()
         {
+            //Define Table Adapters.
+            projectDataSetTableAdapters.contactNameTableAdapter nameTableAdapter = new projectDataSetTableAdapters.contactNameTableAdapter();
+            projectDataSetTableAdapters.contactAddressTableAdapter addressTableAdapter = new projectDataSetTableAdapters.contactAddressTableAdapter();
+            projectDataSetTableAdapters.contactOtherTableAdapter otherTableAdapter = new projectDataSetTableAdapters.contactOtherTableAdapter();
 
+            try
+            {
+                nameTableAdapter.Update(dbDataSet.contactName);
+                addressTableAdapter.Update(dbDataSet.contactAddress);
+                otherTableAdapter.Update(dbDataSet.contactOther);
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("Update failed", ex.Message);
+            }
         }
     }
 }

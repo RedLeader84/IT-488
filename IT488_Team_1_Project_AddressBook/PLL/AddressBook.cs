@@ -20,11 +20,16 @@ namespace IT488_Team_1_Project_AddressBook.PLL
             this.Size = new Size(contactViewer.Columns.GetColumnsWidth(DataGridViewElementStates.Visible) + 75, 500);
             this.CenterToScreen();
         }
-
         private void addEditButton_Click(object sender, EventArgs e)
         {
             Form f = new AddEditContact();
             f.ShowDialog();
+
+            contactViewer.DataSource = Connection.Load_DataGrid();
+        }
+        private void AddressBook_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Connection.Update_Database();
         }
     }
 }

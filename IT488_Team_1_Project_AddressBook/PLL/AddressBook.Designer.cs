@@ -28,18 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.contactViewer = new System.Windows.Forms.DataGridView();
             this.mainContainer = new System.Windows.Forms.SplitContainer();
             this.deleteButton = new System.Windows.Forms.Button();
-            this.addEditButton = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
             this.searchGroupBox = new System.Windows.Forms.GroupBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.sortGroupBox = new System.Windows.Forms.GroupBox();
             this.lastNameRadio = new System.Windows.Forms.RadioButton();
             this.firstNameRadio = new System.Windows.Forms.RadioButton();
+            this.editButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.contactViewer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainContainer)).BeginInit();
             this.mainContainer.Panel1.SuspendLayout();
@@ -55,14 +56,14 @@
             this.contactViewer.AllowUserToDeleteRows = false;
             this.contactViewer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.contactViewer.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.contactViewer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.contactViewer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.contactViewer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.contactViewer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contactViewer.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -70,8 +71,8 @@
             this.contactViewer.Margin = new System.Windows.Forms.Padding(3, 1, 2, 1);
             this.contactViewer.MultiSelect = false;
             this.contactViewer.Name = "contactViewer";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.contactViewer.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.contactViewer.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.contactViewer.RowTemplate.Height = 49;
             this.contactViewer.ShowEditingIcon = false;
             this.contactViewer.Size = new System.Drawing.Size(798, 107);
@@ -82,14 +83,16 @@
             this.mainContainer.Cursor = System.Windows.Forms.Cursors.HSplit;
             this.mainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.mainContainer.IsSplitterFixed = true;
             this.mainContainer.Location = new System.Drawing.Point(0, 0);
             this.mainContainer.Name = "mainContainer";
             this.mainContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // mainContainer.Panel1
             // 
+            this.mainContainer.Panel1.Controls.Add(this.editButton);
             this.mainContainer.Panel1.Controls.Add(this.deleteButton);
-            this.mainContainer.Panel1.Controls.Add(this.addEditButton);
+            this.mainContainer.Panel1.Controls.Add(this.addButton);
             this.mainContainer.Panel1.Controls.Add(this.searchGroupBox);
             this.mainContainer.Panel1.Controls.Add(this.sortGroupBox);
             this.mainContainer.Panel1MinSize = 75;
@@ -111,15 +114,15 @@
             this.deleteButton.Text = "Delete Contact";
             this.deleteButton.UseVisualStyleBackColor = true;
             // 
-            // addEditButton
+            // addButton
             // 
-            this.addEditButton.Location = new System.Drawing.Point(228, 32);
-            this.addEditButton.Name = "addEditButton";
-            this.addEditButton.Size = new System.Drawing.Size(126, 23);
-            this.addEditButton.TabIndex = 2;
-            this.addEditButton.Text = "Add / Edit Contact";
-            this.addEditButton.UseVisualStyleBackColor = true;
-            this.addEditButton.Click += new System.EventHandler(this.addEditButton_Click);
+            this.addButton.Location = new System.Drawing.Point(228, 12);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(126, 23);
+            this.addButton.TabIndex = 2;
+            this.addButton.Text = "Add Contact";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addEditButton_Click);
             // 
             // searchGroupBox
             // 
@@ -181,6 +184,15 @@
             this.firstNameRadio.Text = "First Name";
             this.firstNameRadio.UseVisualStyleBackColor = true;
             // 
+            // editButton
+            // 
+            this.editButton.Location = new System.Drawing.Point(228, 41);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(126, 23);
+            this.editButton.TabIndex = 4;
+            this.editButton.Text = "Edit Contact";
+            this.editButton.UseVisualStyleBackColor = true;
+            // 
             // AddressBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -191,6 +203,7 @@
             this.Name = "AddressBook";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IT488 Project - Address Book";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddressBook_FormClosing);
             this.Load += new System.EventHandler(this.AddressBook_Load);
             ((System.ComponentModel.ISupportInitialize)(this.contactViewer)).EndInit();
             this.mainContainer.Panel1.ResumeLayout(false);
@@ -210,12 +223,13 @@
         private System.Windows.Forms.DataGridView contactViewer;
         private System.Windows.Forms.SplitContainer mainContainer;
         private System.Windows.Forms.Button deleteButton;
-        private System.Windows.Forms.Button addEditButton;
+        private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.GroupBox searchGroupBox;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.GroupBox sortGroupBox;
         private System.Windows.Forms.RadioButton lastNameRadio;
         private System.Windows.Forms.RadioButton firstNameRadio;
+        private System.Windows.Forms.Button editButton;
     }
 }
