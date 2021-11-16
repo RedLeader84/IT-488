@@ -44,19 +44,24 @@ namespace IT488_Team_1_Project_AddressBook.PLL
                 errors = true;
             }
             else cityLabel.ForeColor = Color.Black;
-            if (!stateTextBox.Text.All(c => Char.IsLetter(c)) || stateTextBox.Text.Length > 2 || firstNameTextBox.Text.Length == 0)
+            if (!stateTextBox.Text.All(c => Char.IsLetter(c)) || stateTextBox.Text.Length != 2 || firstNameTextBox.Text.Length == 0)
             {
                 stateLabel.ForeColor = Color.Red;
                 errors = true;
             }
             else stateLabel.ForeColor = Color.Black;
-            if (!zipTextBox.Text.All(c => Char.IsNumber(c)) || stateTextBox.Text.Length > 5 || firstNameTextBox.Text.Length == 0)
+            if (!zipTextBox.Text.All(c => Char.IsNumber(c)) || stateTextBox.Text.Length != 5 || firstNameTextBox.Text.Length == 0)
             {
                 zipLabel.ForeColor = Color.Red;
                 errors = true;
             }
             else zipLabel.ForeColor = Color.Black;
-            //phone number
+            if (!phoneTextBox.Text.All(c => Char.IsNumber(c)) || phoneTextBox.Text.Length != 10 || phoneTextBox.Text.Length == 0)
+            {
+                phoneLabel.ForeColor = Color.Red;
+                errors = true;
+            }
+            else phoneLabel.ForeColor = Color.Black;
             if (!IsValidEmail(emailTextBox.Text) || firstNameTextBox.Text.Length == 0)
             {
                 emailLabel.ForeColor = Color.Red;
@@ -81,17 +86,7 @@ namespace IT488_Team_1_Project_AddressBook.PLL
             this.Close();
         }
         #endregion
-        private void phoneTextBox_Enter(object sender, EventArgs e)
-        {
-            TextBox b = sender as TextBox;
-
-            
-        }
-        private void phoneTextBox_Leave(object sender, EventArgs e)
-        {
-
-        }
-
+ 
         //Data Validation Functions
         private bool IsValidEmail(string e)
         {
