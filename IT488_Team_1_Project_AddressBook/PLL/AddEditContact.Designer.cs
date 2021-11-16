@@ -46,11 +46,11 @@ namespace IT488_Team_1_Project_AddressBook.PLL
             this.emailLabel = new System.Windows.Forms.Label();
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.phoneLabel = new System.Windows.Forms.Label();
-            this.phoneTextBox = new System.Windows.Forms.TextBox();
             this.commentsLabel = new System.Windows.Forms.Label();
             this.commentsTextBox = new System.Windows.Forms.TextBox();
             this.cancelButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
+            this.phoneTextBox = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // firstNameTextBox
@@ -190,13 +190,6 @@ namespace IT488_Team_1_Project_AddressBook.PLL
             this.phoneLabel.TabIndex = 15;
             this.phoneLabel.Text = "Phone:  ";
             // 
-            // phoneTextBox
-            // 
-            this.phoneTextBox.Location = new System.Drawing.Point(91, 128);
-            this.phoneTextBox.Name = "phoneTextBox";
-            this.phoneTextBox.Size = new System.Drawing.Size(143, 23);
-            this.phoneTextBox.TabIndex = 14;
-            // 
             // commentsLabel
             // 
             this.commentsLabel.AutoSize = true;
@@ -234,11 +227,21 @@ namespace IT488_Team_1_Project_AddressBook.PLL
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
+            // phoneTextBox
+            // 
+            this.phoneTextBox.Location = new System.Drawing.Point(91, 128);
+            this.phoneTextBox.Mask = "(999) 000-0000";
+            this.phoneTextBox.Name = "phoneTextBox";
+            this.phoneTextBox.Size = new System.Drawing.Size(143, 23);
+            this.phoneTextBox.TabIndex = 23;
+            this.phoneTextBox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            // 
             // AddEditContact
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(546, 316);
+            this.Controls.Add(this.phoneTextBox);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.commentsTextBox);
@@ -246,7 +249,6 @@ namespace IT488_Team_1_Project_AddressBook.PLL
             this.Controls.Add(this.emailLabel);
             this.Controls.Add(this.emailTextBox);
             this.Controls.Add(this.phoneLabel);
-            this.Controls.Add(this.phoneTextBox);
             this.Controls.Add(this.zipLabel);
             this.Controls.Add(this.zipTextBox);
             this.Controls.Add(this.stateLabel);
@@ -288,10 +290,10 @@ namespace IT488_Team_1_Project_AddressBook.PLL
         private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.TextBox emailTextBox;
         private System.Windows.Forms.Label phoneLabel;
-        private System.Windows.Forms.TextBox phoneTextBox;
         private System.Windows.Forms.Label commentsLabel;
         private System.Windows.Forms.TextBox commentsTextBox;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.MaskedTextBox phoneTextBox;
     }
 }
