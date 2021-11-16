@@ -10,9 +10,9 @@ namespace IT488_Team_1_Project_AddressBook.PLL
     {
         //Global Form Variables
         public string addEditSelection = "";
-        public string selectedContact = "";
+        public int selectedContact = -1;
 
-        public AddEditContact(string butText, string contact)
+        public AddEditContact(string butText, int contact)
         {
             InitializeComponent();
 

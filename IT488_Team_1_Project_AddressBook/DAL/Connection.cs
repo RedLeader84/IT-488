@@ -29,6 +29,7 @@ namespace IT488_Team_1_Project_AddressBook.DAL
                         join tbl_3 in dbDataSet.contactOther.AsEnumerable() on (int)tbl_1["id"] equals (int)tbl_3["contactId"]
                         select new
                         {
+                            ID = tbl_1["id"],
                             FirstName = tbl_1["firstName"],
                             LastName = tbl_1["lastName"],
                             Name = tbl_1["firstName"] + " " + tbl_1["lastName"],
@@ -46,6 +47,7 @@ namespace IT488_Team_1_Project_AddressBook.DAL
             DataTable tbl = new DataTable();
             DataRow row = null;
 
+            tbl.Columns.Add("ID");
             tbl.Columns.Add("FirstName");
             tbl.Columns.Add("LastName");
             tbl.Columns.Add("Name");
@@ -61,7 +63,7 @@ namespace IT488_Team_1_Project_AddressBook.DAL
             foreach (var rowObj in query)
             {
                 row = tbl.NewRow();
-                tbl.Rows.Add(rowObj.FirstName, rowObj.LastName, rowObj.Name, rowObj.Address1, rowObj.Address2, rowObj.City, rowObj.State, rowObj.Zip, rowObj.Phone, rowObj.Email, rowObj.Comments);
+                tbl.Rows.Add(rowObj.ID, rowObj.FirstName, rowObj.LastName, rowObj.Name, rowObj.Address1, rowObj.Address2, rowObj.City, rowObj.State, rowObj.Zip, rowObj.Phone, rowObj.Email, rowObj.Comments);
             }
 
             return tbl;
@@ -81,7 +83,7 @@ namespace IT488_Team_1_Project_AddressBook.DAL
             }
             catch (System.Exception ex)
             {
-                MessageBox.Show("Update failed", ex.Message);
+                MessageBox.Show(ex.Message, "Database update failed");
             }
         }
     }

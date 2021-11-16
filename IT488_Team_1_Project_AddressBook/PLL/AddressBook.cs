@@ -9,7 +9,8 @@ namespace IT488_Team_1_Project_AddressBook.PLL
     public partial class AddressBook : Form
     {
         //Global Form Variables
-        public string selectedContact = "";
+        public int selectedId = -1;
+        public string selectedName = "";
 
         public AddressBook()
         {
@@ -19,6 +20,7 @@ namespace IT488_Team_1_Project_AddressBook.PLL
         private void AddressBook_Load(object sender, EventArgs e)
         {
             contactViewer.DataSource = Connection.Load_DataGrid();
+            contactViewer.Columns["ID"].Visible = false;
             contactViewer.Columns["FirstName"].Visible = false;
             contactViewer.Columns["LastName"].Visible = false;
             contactViewer.Sort(contactViewer.Columns["FirstName"], System.ComponentModel.ListSortDirection.Ascending);
@@ -32,7 +34,7 @@ namespace IT488_Team_1_Project_AddressBook.PLL
             Button b = sender as Button;
 
             Form f = null;
-            f = new AddEditContact(b.Text, selectedContact);
+            f = new AddEditContact(b.Text, selectedId);
             f.ShowDialog();
 
             contactViewer.DataSource = Connection.Load_DataGrid();
@@ -51,7 +53,8 @@ namespace IT488_Team_1_Project_AddressBook.PLL
             if (contactViewer.SelectedCells.Count > 0)
             {
                 DataGridViewRow row = contactViewer.Rows[contactViewer.SelectedCells[0].RowIndex];
-                selectedContact = row.Cells["Name"].Value.ToString();
+                selectedId = Convert.ToInt32(row.Cells["ID"].Value);
+                selectedName = row.Cells["Name"].Value.ToString();
             }
         }
         private void searchButton_Click(object sender, EventArgs e)
@@ -88,7 +91,40 @@ namespace IT488_Team_1_Project_AddressBook.PLL
         }
         private void deleteButton_Click(object sender, EventArgs e)
         {
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show("Are you sure you want to delete " + selectedName + " from contact list?", "Delete Contact", buttons);
 
+            if (result == DialogResult.Yes)
+            {
+/*                int otherId = -1;
+                int addressId = -1;
+
+                //Remove associated record from contactOther table.
+                foreach (projectDataSet.contactOtherRow r in Connection.dbDataSet.contactOther)
+                {
+                    if (r.contactId == selectedId)
+                        otherId = r.id;
+                }
+
+                //Remove associated record from contactAddress table.
+                foreach (projectDataSet.contactAddressRow r in Connection.dbDataSet.contactAddress)
+                {
+                    if (r.contactId == selectedId)
+                        addressId = r.id;
+                }
+*/
+                //Remove Rows From Tables.
+                Connection.dbDataSet.contactOther.Rows[selectedId].Delete();
+                Connection.dbDataSet.contactAddress.Rows[selectedId].Delete();
+                Connection.dbDataSet.contactName.Rows[selectedId].Delete();
+                Connection.dbDataSet.AcceptChanges();
+            }
+
+            contactViewer.DataSource = Connection.Load_DataGrid();
+            if (firstNameRadio.Checked)
+                contactViewer.Sort(contactViewer.Columns["FirstName"], System.ComponentModel.ListSortDirection.Ascending);
+            if (lastNameRadio.Checked)
+                contactViewer.Sort(contactViewer.Columns["LastName"], System.ComponentModel.ListSortDirection.Ascending);
         }
     }
 }
