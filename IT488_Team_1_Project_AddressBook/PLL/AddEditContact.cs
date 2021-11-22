@@ -89,6 +89,7 @@ namespace IT488_Team_1_Project_AddressBook.PLL
                     UpdateDataSet();
                 else
                     AddDataSet();
+                Connection.Update_Database();
                 this.Close();
             }
         }

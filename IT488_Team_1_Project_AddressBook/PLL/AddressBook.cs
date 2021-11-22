@@ -103,28 +103,40 @@ namespace IT488_Team_1_Project_AddressBook.PLL
 
             if (result == DialogResult.Yes)
             {
-                int otherId = -1;
-                int addressId = -1;
+                int otherIndex = 0;
+                int addressIndex = 0;
+                int nameIndex = 0;
 
                 //Remove associated record from contactOther table.
                 foreach (projectDataSet.contactOtherRow r in Connection.dbDataSet.contactOther)
                 {
                     if (r.contactId == selectedId)
-                        otherId = r.id;
+                        break;
+                    otherIndex++;
                 }
 
                 //Remove associated record from contactAddress table.
                 foreach (projectDataSet.contactAddressRow r in Connection.dbDataSet.contactAddress)
                 {
                     if (r.contactId == selectedId)
-                        addressId = r.id;
+                        break;
+                    addressIndex++;
+                }
+
+                //Remove associated record from contactName table.
+                foreach (projectDataSet.contactNameRow r in Connection.dbDataSet.contactName)
+                {
+                    if (r.id == selectedId)
+                        break;
+                    nameIndex++;
                 }
 
                 //Remove Rows From Tables.
-                Connection.dbDataSet.contactOther[otherId].Delete();
-                Connection.dbDataSet.contactAddress[addressId].Delete();
-                Connection.dbDataSet.contactName[selectedId].Delete();
-                Connection.dbDataSet.AcceptChanges();
+                Connection.dbDataSet.contactOther[otherIndex].Delete();
+                Connection.Update_Database();
+                Connection.dbDataSet.contactAddress[addressIndex].Delete();
+                Connection.Update_Database();
+                Connection.dbDataSet.contactName[nameIndex].Delete();
                 Connection.Update_Database();
             }
 

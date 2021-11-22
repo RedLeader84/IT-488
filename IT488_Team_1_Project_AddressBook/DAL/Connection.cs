@@ -23,6 +23,8 @@ namespace IT488_Team_1_Project_AddressBook.DAL
         }
         public static DataTable Load_DataGrid()
         {
+            dbDataSet.AcceptChanges();
+
             //LINQ query to merge datatables for viewing.
             var query = from tbl_1 in dbDataSet.contactName.AsEnumerable()
                         join tbl_2 in dbDataSet.contactAddress.AsEnumerable() on (int)tbl_1["id"] equals (int)tbl_2["contactId"]
