@@ -9,14 +9,14 @@ namespace IT488_Team_1_Project_AddressBook.PLL
     public partial class AddEditContact : Form
     {
         //Global Form Variables
-        public string addEditSelection = "";
+        public string addOrEdit = "";
         public int selectedContact = -1;
 
         public AddEditContact(string butText, int contact)
         {
             InitializeComponent();
 
-            addEditSelection = butText;
+            addOrEdit = butText;
             selectedContact = contact;
         }
 
@@ -85,7 +85,10 @@ namespace IT488_Team_1_Project_AddressBook.PLL
             }
             else
             {
-                UpdateDataSet();
+                if (addOrEdit == "Edit Contact")
+                    UpdateDataSet();
+                else
+                    AddDataSet();
                 this.Close();
             }
         }
@@ -117,7 +120,7 @@ namespace IT488_Team_1_Project_AddressBook.PLL
 
         #region DataSet Functions
         //DataSet Functions
-        private void UpdateDataSet()
+        private void AddDataSet()
         {
             int maxNameId = 0;
             int maxAddressId = 0;
@@ -167,13 +170,101 @@ namespace IT488_Team_1_Project_AddressBook.PLL
             Connection.dbDataSet.contactAddress.Rows.Add(addressRow);
             Connection.dbDataSet.contactOther.Rows.Add(otherRow);
         }
+        private void UpdateDataSet()
+        {
+            int index = 0;
+            foreach (projectDataSet.contactNameRow r in Connection.dbDataSet.contactName.ToList())
+            {
+                if (r.id == selectedContact)
+                {
+                    Connection.dbDataSet.contactName[index].BeginEdit();
+                    Connection.dbDataSet.contactName[index].firstName = firstNameTextBox.Text;
+                    Connection.dbDataSet.contactName[index].lastName = lastNameTextBox.Text;
+                    Connection.dbDataSet.contactName[index].EndEdit();
+                    break;
+                }
+                index++;
+            }
+
+            index = 0;
+            foreach (projectDataSet.contactAddressRow r in Connection.dbDataSet.contactAddress.ToList())
+            {
+                if (r.contactId == selectedContact)
+                {
+                    Connection.dbDataSet.contactAddress[index].BeginEdit();
+                    Connection.dbDataSet.contactAddress[index].addressLine1 = address1TextBox.Text;
+                    Connection.dbDataSet.contactAddress[index].addressLine2 = address2TextBox.Text;
+                    Connection.dbDataSet.contactAddress[index].city = cityTextBox.Text;
+                    Connection.dbDataSet.contactAddress[index].state = stateTextBox.Text;
+                    Connection.dbDataSet.contactAddress[index].zip = Convert.ToInt32(zipTextBox.Text);
+                    Connection.dbDataSet.contactAddress[index].EndEdit();
+                    break;
+                }
+                index++;
+            }
+
+            index = 0;
+            foreach (projectDataSet.contactOtherRow r in Connection.dbDataSet.contactOther.ToList())
+            {
+                if (r.contactId == selectedContact)
+                {
+                    Connection.dbDataSet.contactOther[index].BeginEdit();
+                    Connection.dbDataSet.contactOther[index].phoneNum = phoneTextBox.Text;
+                    Connection.dbDataSet.contactOther[index].email = emailTextBox.Text;
+                    Connection.dbDataSet.contactOther[index].comments = commentsTextBox.Text;
+                    Connection.dbDataSet.contactOther[index].EndEdit();
+                    index++;
+                }
+                index++;
+            }
+        }
         #endregion
         private void AddEditContact_Load(object sender, EventArgs e)
         {
-            //projectDataSet.contactNameRow nameRow = Connection.dbDataSet.contactName.fi
-            if (addEditSelection == "Edit Contact")
+            if (addOrEdit == "Edit Contact")
             {
+                int index = 0;
+                foreach (projectDataSet.contactNameRow r in Connection.dbDataSet.contactName.ToList())
+                {
+                    if (r.id == selectedContact)
+                    {
+                        firstNameTextBox.Text = Connection.dbDataSet.contactName[index].firstName;
+                        lastNameTextBox.Text = Connection.dbDataSet.contactName[index].lastName;
+                        break;
+                    }
 
+                    index++;
+                }
+
+                index = 0;
+                foreach (projectDataSet.contactAddressRow r in Connection.dbDataSet.contactAddress.ToList())
+                {
+                    if (r.contactId == selectedContact)
+                    {
+                        address1TextBox.Text = Connection.dbDataSet.contactAddress[index].addressLine1;
+                        address2TextBox.Text = Connection.dbDataSet.contactAddress[index].addressLine2;
+                        cityTextBox.Text = Connection.dbDataSet.contactAddress[index].city;
+                        stateTextBox.Text = Connection.dbDataSet.contactAddress[index].state;
+                        zipTextBox.Text = Connection.dbDataSet.contactAddress[index].zip.ToString();
+                        break;
+                    }
+
+                    index++;
+                }
+                
+                index = 0;
+                foreach (projectDataSet.contactOtherRow r in Connection.dbDataSet.contactOther.ToList())
+                {
+                    if (r.contactId == selectedContact)
+                    {
+                        phoneTextBox.Text = Connection.dbDataSet.contactOther[index].phoneNum;
+                        emailTextBox.Text = Connection.dbDataSet.contactOther[index].email;
+                        commentsTextBox.Text = Connection.dbDataSet.contactOther[index].comments;
+                        break;
+                    }
+                    
+                    index++;
+                }
             }
         }
     }

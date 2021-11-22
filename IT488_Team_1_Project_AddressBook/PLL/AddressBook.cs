@@ -43,6 +43,9 @@ namespace IT488_Team_1_Project_AddressBook.PLL
             if (lastNameRadio.Checked)
                 contactViewer.Sort(contactViewer.Columns["LastName"], System.ComponentModel.ListSortDirection.Ascending);
 
+            //Adjust Window Size To DataTable
+            this.Size = new Size(contactViewer.Columns.GetColumnsWidth(DataGridViewElementStates.Visible) + 25, 500);
+            this.CenterToScreen();
         }
         private void AddressBook_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -88,6 +91,10 @@ namespace IT488_Team_1_Project_AddressBook.PLL
             firstNameRadio.Checked = true;
             contactViewer.Sort(contactViewer.Columns["FirstName"], System.ComponentModel.ListSortDirection.Ascending);
             searchTextBox.Text = "";
+
+            //Adjust Window Size To DataTable
+            this.Size = new Size(contactViewer.Columns.GetColumnsWidth(DataGridViewElementStates.Visible) + 25, 500);
+            this.CenterToScreen();
         }
         private void deleteButton_Click(object sender, EventArgs e)
         {
@@ -96,7 +103,7 @@ namespace IT488_Team_1_Project_AddressBook.PLL
 
             if (result == DialogResult.Yes)
             {
-/*                int otherId = -1;
+                int otherId = -1;
                 int addressId = -1;
 
                 //Remove associated record from contactOther table.
@@ -112,12 +119,13 @@ namespace IT488_Team_1_Project_AddressBook.PLL
                     if (r.contactId == selectedId)
                         addressId = r.id;
                 }
-*/
+
                 //Remove Rows From Tables.
-                Connection.dbDataSet.contactOther.Rows[selectedId].Delete();
-                Connection.dbDataSet.contactAddress.Rows[selectedId].Delete();
-                Connection.dbDataSet.contactName.Rows[selectedId].Delete();
+                Connection.dbDataSet.contactOther[otherId].Delete();
+                Connection.dbDataSet.contactAddress[addressId].Delete();
+                Connection.dbDataSet.contactName[selectedId].Delete();
                 Connection.dbDataSet.AcceptChanges();
+                Connection.Update_Database();
             }
 
             contactViewer.DataSource = Connection.Load_DataGrid();
