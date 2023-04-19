@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "dI5SAXudxHVfVHkDapfdZ9g7vRK/Q2T9FhPelEu+3qwbxRszk3bpIBr3nc7J/xERdK0QZ6NKKZrgLo/fKgYbIg==",
+=======
+  "dgSpecHash": "6yknCvObkvXbQQ6f2dAqH3HNNPkQSO3rX7kuCItf0Bcp+UsMwxilMqBXBCxYyeGWdfwijom/P5miEGZDbIMZmw==",
+>>>>>>> Doug
   "success": true,
   "projectFilePath": "C:\\Users\\Garrett\\Source\\Repos\\IT-488\\IT488_Team_1_Project_AddressBook\\IT488_Team_1_Project_AddressBook.csproj",
   "expectedPackageFiles": [

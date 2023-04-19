@@ -30,9 +30,9 @@ namespace IT488_Team_1_Project_AddressBook.DAL {
         
         private contactOtherDataTable tablecontactOther;
         
-        private global::System.Data.DataRelation relationFK_contactAddress_ToTable;
+        private global::System.Data.DataRelation relationFK_contactAddress_contactName;
         
-        private global::System.Data.DataRelation relationFK_contactOther_ToTable;
+        private global::System.Data.DataRelation relationFK_contactOther_contactName;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -246,8 +246,8 @@ namespace IT488_Team_1_Project_AddressBook.DAL {
                     this.tablecontactOther.InitVars();
                 }
             }
-            this.relationFK_contactAddress_ToTable = this.Relations["FK_contactAddress_ToTable"];
-            this.relationFK_contactOther_ToTable = this.Relations["FK_contactOther_ToTable"];
+            this.relationFK_contactAddress_contactName = this.Relations["FK_contactAddress_contactName"];
+            this.relationFK_contactOther_contactName = this.Relations["FK_contactOther_contactName"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -264,14 +264,29 @@ namespace IT488_Team_1_Project_AddressBook.DAL {
             base.Tables.Add(this.tablecontactName);
             this.tablecontactOther = new contactOtherDataTable();
             base.Tables.Add(this.tablecontactOther);
-            this.relationFK_contactAddress_ToTable = new global::System.Data.DataRelation("FK_contactAddress_ToTable", new global::System.Data.DataColumn[] {
+            global::System.Data.ForeignKeyConstraint fkc;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_contactAddress_contactName", new global::System.Data.DataColumn[] {
+                        this.tablecontactName.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tablecontactAddress.contactIdColumn});
+            this.tablecontactAddress.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.None;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_contactOther_contactName", new global::System.Data.DataColumn[] {
+                        this.tablecontactName.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tablecontactOther.contactIdColumn});
+            this.tablecontactOther.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.None;
+            this.relationFK_contactAddress_contactName = new global::System.Data.DataRelation("FK_contactAddress_contactName", new global::System.Data.DataColumn[] {
                         this.tablecontactName.idColumn}, new global::System.Data.DataColumn[] {
                         this.tablecontactAddress.contactIdColumn}, false);
-            this.Relations.Add(this.relationFK_contactAddress_ToTable);
-            this.relationFK_contactOther_ToTable = new global::System.Data.DataRelation("FK_contactOther_ToTable", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK_contactAddress_contactName);
+            this.relationFK_contactOther_contactName = new global::System.Data.DataRelation("FK_contactOther_contactName", new global::System.Data.DataColumn[] {
                         this.tablecontactName.idColumn}, new global::System.Data.DataColumn[] {
                         this.tablecontactOther.contactIdColumn}, false);
-            this.Relations.Add(this.relationFK_contactOther_ToTable);
+            this.Relations.Add(this.relationFK_contactOther_contactName);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -503,7 +518,7 @@ namespace IT488_Team_1_Project_AddressBook.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public contactAddressRow AddcontactAddressRow(int id, string addressLine1, string addressLine2, string city, string state, int zip, contactNameRow parentcontactNameRowByFK_contactAddress_ToTable) {
+            public contactAddressRow AddcontactAddressRow(int id, string addressLine1, string addressLine2, string city, string state, int zip, contactNameRow parentcontactNameRowByFK_contactAddress_contactName) {
                 contactAddressRow rowcontactAddressRow = ((contactAddressRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -513,8 +528,8 @@ namespace IT488_Team_1_Project_AddressBook.DAL {
                         state,
                         zip,
                         null};
-                if ((parentcontactNameRowByFK_contactAddress_ToTable != null)) {
-                    columnValuesArray[6] = parentcontactNameRowByFK_contactAddress_ToTable[0];
+                if ((parentcontactNameRowByFK_contactAddress_contactName != null)) {
+                    columnValuesArray[6] = parentcontactNameRowByFK_contactAddress_contactName[0];
                 }
                 rowcontactAddressRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowcontactAddressRow);
@@ -1126,7 +1141,7 @@ namespace IT488_Team_1_Project_AddressBook.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public contactOtherRow AddcontactOtherRow(int id, string phoneNum, string email, string comments, contactNameRow parentcontactNameRowByFK_contactOther_ToTable) {
+            public contactOtherRow AddcontactOtherRow(int id, string phoneNum, string email, string comments, contactNameRow parentcontactNameRowByFK_contactOther_contactName) {
                 contactOtherRow rowcontactOtherRow = ((contactOtherRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -1134,8 +1149,8 @@ namespace IT488_Team_1_Project_AddressBook.DAL {
                         email,
                         comments,
                         null};
-                if ((parentcontactNameRowByFK_contactOther_ToTable != null)) {
-                    columnValuesArray[4] = parentcontactNameRowByFK_contactOther_ToTable[0];
+                if ((parentcontactNameRowByFK_contactOther_contactName != null)) {
+                    columnValuesArray[4] = parentcontactNameRowByFK_contactOther_contactName[0];
                 }
                 rowcontactOtherRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowcontactOtherRow);
@@ -1422,10 +1437,10 @@ namespace IT488_Team_1_Project_AddressBook.DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public contactNameRow contactNameRow {
                 get {
-                    return ((contactNameRow)(this.GetParentRow(this.Table.ParentRelations["FK_contactAddress_ToTable"])));
+                    return ((contactNameRow)(this.GetParentRow(this.Table.ParentRelations["FK_contactAddress_contactName"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_contactAddress_ToTable"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_contactAddress_contactName"]);
                 }
             }
             
@@ -1508,23 +1523,23 @@ namespace IT488_Team_1_Project_AddressBook.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public contactAddressRow[] GetcontactAddressRows() {
-                if ((this.Table.ChildRelations["FK_contactAddress_ToTable"] == null)) {
-                    return new contactAddressRow[0];
+            public contactOtherRow[] GetcontactOtherRows() {
+                if ((this.Table.ChildRelations["FK_contactOther_contactName"] == null)) {
+                    return new contactOtherRow[0];
                 }
                 else {
-                    return ((contactAddressRow[])(base.GetChildRows(this.Table.ChildRelations["FK_contactAddress_ToTable"])));
+                    return ((contactOtherRow[])(base.GetChildRows(this.Table.ChildRelations["FK_contactOther_contactName"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public contactOtherRow[] GetcontactOtherRows() {
-                if ((this.Table.ChildRelations["FK_contactOther_ToTable"] == null)) {
-                    return new contactOtherRow[0];
+            public contactAddressRow[] GetcontactAddressRows() {
+                if ((this.Table.ChildRelations["FK_contactAddress_contactName"] == null)) {
+                    return new contactAddressRow[0];
                 }
                 else {
-                    return ((contactOtherRow[])(base.GetChildRows(this.Table.ChildRelations["FK_contactOther_ToTable"])));
+                    return ((contactAddressRow[])(base.GetChildRows(this.Table.ChildRelations["FK_contactAddress_contactName"])));
                 }
             }
         }
@@ -1607,10 +1622,10 @@ namespace IT488_Team_1_Project_AddressBook.DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public contactNameRow contactNameRow {
                 get {
-                    return ((contactNameRow)(this.GetParentRow(this.Table.ParentRelations["FK_contactOther_ToTable"])));
+                    return ((contactNameRow)(this.GetParentRow(this.Table.ParentRelations["FK_contactOther_contactName"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_contactOther_ToTable"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_contactOther_contactName"]);
                 }
             }
             
@@ -2291,9 +2306,9 @@ SELECT id, addressLine1, addressLine2, city, state, zip, contactId FROM contactA
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::Microsoft.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[contactName] WHERE (([id] = @Original_id) AND ((@IsNull_firstN" +
-                "ame = 1 AND [firstName] IS NULL) OR ([firstName] = @Original_firstName)) AND ([l" +
-                "astName] = @Original_lastName))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [contactName] WHERE (([id] = @Original_id) AND ((@IsNull_firstName = " +
+                "1 AND [firstName] IS NULL) OR ([firstName] = @Original_firstName)) AND ([lastNam" +
+                "e] = @Original_lastName))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::Microsoft.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::Microsoft.Data.SqlClient.SqlParameter("@IsNull_firstName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "firstName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -2301,16 +2316,15 @@ SELECT id, addressLine1, addressLine2, city, state, zip, contactId FROM contactA
             this._adapter.DeleteCommand.Parameters.Add(new global::Microsoft.Data.SqlClient.SqlParameter("@Original_lastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "lastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::Microsoft.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[contactName] ([id], [firstName], [lastName]) VALUES (@id, @fir" +
-                "stName, @lastName);\r\nSELECT id, firstName, lastName FROM contactName WHERE (id =" +
-                " @id)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [contactName] ([id], [firstName], [lastName]) VALUES (@id, @firstName" +
+                ", @lastName);\r\nSELECT id, firstName, lastName FROM contactName WHERE (id = @id)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::Microsoft.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::Microsoft.Data.SqlClient.SqlParameter("@firstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "firstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::Microsoft.Data.SqlClient.SqlParameter("@lastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "lastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::Microsoft.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[contactName] SET [id] = @id, [firstName] = @firstName, [lastName] = @lastName WHERE (([id] = @Original_id) AND ((@IsNull_firstName = 1 AND [firstName] IS NULL) OR ([firstName] = @Original_firstName)) AND ([lastName] = @Original_lastName));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [contactName] SET [id] = @id, [firstName] = @firstName, [lastName] = @lastName WHERE (([id] = @Original_id) AND ((@IsNull_firstName = 1 AND [firstName] IS NULL) OR ([firstName] = @Original_firstName)) AND ([lastName] = @Original_lastName));
 SELECT id, firstName, lastName FROM contactName WHERE (id = @id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::Microsoft.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2336,7 +2350,7 @@ SELECT id, firstName, lastName FROM contactName WHERE (id = @id)";
             this._commandCollection = new global::Microsoft.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::Microsoft.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id, firstName, lastName FROM dbo.contactName";
+            this._commandCollection[0].CommandText = "SELECT        id, firstName, lastName\r\nFROM            contactName";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
